@@ -3,15 +3,18 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import { Logo } from "@/components/site/Logo";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, IndianRupee } from "lucide-react";
 
 export const Route = createFileRoute("/onboarding")({
   component: OnboardingPage,
 });
 
-type Answer = string | string[];
+type StepBase = { id: string; question: string; hint: string };
+type SingleStep = StepBase & { type: "single"; options: { value: string; label: string; icon: string }[] };
+type TextStep = StepBase & { type: "text"; placeholder: string };
+type Step = SingleStep | TextStep;
 
-const STEPS = [
+const STEPS: Step[] = [
   {
     id: "service",
     question: "What type of service are you looking for?",
@@ -27,15 +30,10 @@ const STEPS = [
   },
   {
     id: "budget",
-    question: "What's your approximate budget?",
-    hint: "This helps us scope the right team and timeline for you.",
-    type: "single",
-    options: [
-      { value: "under50k", label: "Under ₹50,000", icon: "💸" },
-      { value: "50k-2l", label: "₹50K – ₹2 Lakh", icon: "💰" },
-      { value: "2l-10l", label: "₹2L – ₹10 Lakh", icon: "💎" },
-      { value: "10l+", label: "₹10 Lakh+", icon: "🚀" },
-    ],
+    question: "What's your affordable price?",
+    hint: "Just give us a rough number — there's no wrong answer.",
+    type: "text",
+    placeholder: "e.g. 80,000 or 2 lakhs",
   },
   {
     id: "timeline",
@@ -73,20 +71,25 @@ const STEPS = [
       { value: "other", label: "Somewhere else", icon: "✨" },
     ],
   },
-] as const;
+];
 
 function OnboardingPage() {
   const { user, setOnboardingDone } = useAuth();
   const navigate = useNavigate();
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, Answer>>({});
+  const [answers, setAnswers] = useState<Record<string, string>>({});
   const [done, setDone] = useState(false);
 
   const current = STEPS[step];
   const total = STEPS.length;
-  const selected = answers[current?.id ?? ""] as string | undefined;
+  const currentAnswer = answers[current?.id ?? ""] ?? "";
+  const canProceed = currentAnswer.trim().length > 0;
 
   const handleSelect = (value: string) => {
+    setAnswers((prev) => ({ ...prev, [current.id]: value }));
+  };
+
+  const handleText = (value: string) => {
     setAnswers((prev) => ({ ...prev, [current.id]: value }));
   };
 
@@ -169,36 +172,53 @@ function OnboardingPage() {
               </h2>
               <p className="mt-1.5 text-[13.5px] text-ink-muted">{current.hint}</p>
 
-              <div className="mt-6 grid gap-3">
-                {current.options.map((opt) => {
-                  const isSelected = selected === opt.value;
-                  return (
-                    <button
-                      key={opt.value}
-                      onClick={() => handleSelect(opt.value)}
-                      className={`flex items-center gap-4 rounded-2xl border px-5 py-4 text-left transition-all duration-150 ${
-                        isSelected
-                          ? "border-brand bg-brand/5 shadow-[0_0_0_1px] shadow-brand/30"
-                          : "border-line bg-white hover:border-ink/20 hover:bg-surface-muted/50"
-                      }`}
-                    >
-                      <span className="text-[22px] leading-none">{opt.icon}</span>
-                      <span className={`text-[15px] font-600 ${isSelected ? "text-brand" : "text-ink"}`}>
-                        {opt.label}
-                      </span>
-                      {isSelected && (
-                        <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-brand">
-                          <Check className="h-3 w-3 text-white" strokeWidth={3} />
+              {current.type === "text" ? (
+                <div className="mt-6">
+                  <div className="flex items-center gap-3 rounded-2xl border border-line bg-surface-muted/40 px-4 py-3.5 focus-within:border-brand focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(79,70,229,0.08)] transition-all">
+                    <IndianRupee className="h-5 w-5 shrink-0 text-ink-muted" />
+                    <input
+                      type="text"
+                      value={currentAnswer}
+                      onChange={(e) => handleText(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && canProceed && handleNext()}
+                      placeholder={(current as TextStep).placeholder}
+                      autoFocus
+                      className="flex-1 bg-transparent text-[15px] font-500 text-ink placeholder:text-ink-muted/60 outline-none"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-6 grid gap-3">
+                  {(current as SingleStep).options.map((opt) => {
+                    const isSelected = currentAnswer === opt.value;
+                    return (
+                      <button
+                        key={opt.value}
+                        onClick={() => handleSelect(opt.value)}
+                        className={`flex items-center gap-4 rounded-2xl border px-5 py-4 text-left transition-all duration-150 ${
+                          isSelected
+                            ? "border-brand bg-brand/5 shadow-[0_0_0_1px] shadow-brand/30"
+                            : "border-line bg-white hover:border-ink/20 hover:bg-surface-muted/50"
+                        }`}
+                      >
+                        <span className="text-[22px] leading-none">{opt.icon}</span>
+                        <span className={`text-[15px] font-600 ${isSelected ? "text-brand" : "text-ink"}`}>
+                          {opt.label}
                         </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
+                        {isSelected && (
+                          <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-brand">
+                            <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
 
               <button
                 onClick={handleNext}
-                disabled={!selected}
+                disabled={!canProceed}
                 className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 py-3.5 text-[15px] font-600 text-white transition-all hover:bg-ink/90 hover:shadow-lift disabled:cursor-not-allowed disabled:opacity-40"
               >
                 {step < total - 1 ? "Continue" : "Finish"}
