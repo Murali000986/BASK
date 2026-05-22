@@ -119,7 +119,7 @@ export function Hero() {
 }
 
 function HeroVisual({ reduce }: { reduce: boolean }) {
-  const float = (delay = 0, y = 6) =>
+  const float = (delay = 0, y = 6): any =>
     reduce
       ? {}
       : {
