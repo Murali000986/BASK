@@ -22,10 +22,10 @@ const VALUES = [
 ];
 
 const TEAM = [
-  { name: "Aditya Iyer", role: "Founder · Strategy", initials: "AI", tint: "from-[#4F46E5] to-[#2563EB]" },
-  { name: "Meera Nair", role: "Design Director", initials: "MN", tint: "from-[#0EA5E9] to-[#22D3EE]" },
-  { name: "Kunal Shetty", role: "Engineering Lead", initials: "KS", tint: "from-[#7C3AED] to-[#4F46E5]" },
-  { name: "Tara Krishnan", role: "Head of Production", initials: "TK", tint: "from-[#F472B6] to-[#FB7185]" },
+  { name: "Aditya Iyer", role: "Founder · Strategy", image: "/team/aditya.png" },
+  { name: "Meera Nair", role: "Design Director", image: "/team/meera.png" },
+  { name: "Kunal Shetty", role: "Engineering Lead", image: "/team/kunal.png" },
+  { name: "Tara Krishnan", role: "Head of Production", image: "/team/tara.png" },
 ];
 
 const STATS = [
@@ -115,11 +115,12 @@ function AboutPage() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((m) => (
               <div key={m.name} className="rounded-3xl border border-line bg-white p-5 shadow-soft">
-                <div className={`relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br ${m.tint}`}>
-                  <div className="absolute inset-0 bg-[radial-gradient(50%_50%_at_30%_30%,rgba(255,255,255,0.4),transparent_60%)]" />
-                  <div className="absolute inset-0 flex items-center justify-center font-display text-[40px] font-800 text-white/90">
-                    {m.initials}
-                  </div>
+                <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-surface-muted">
+                  <img
+                    src={m.image}
+                    alt={m.name}
+                    className="absolute inset-0 h-full w-full object-cover object-top"
+                  />
                 </div>
                 <div className="mt-4">
                   <p className="font-display text-[16px] font-700 text-ink">{m.name}</p>

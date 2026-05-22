@@ -48,6 +48,30 @@ uri = "file://public/portfolio/parallel.png"
 type = "image"
 title = "generated_image"
 
+[[generated]]
+id = "I6Muz2aM1aAFFEa2ZsKFw"
+uri = "file://public/team/aditya.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "MKEy3B1sjcMPN75pkbcTM"
+uri = "file://public/team/meera.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "Cc_klZeSbzMNXsPTjnmMU"
+uri = "file://public/team/kunal.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "_tGX68t2bsHEBJjlVyUQy"
+uri = "file://public/team/tara.png"
+type = "image"
+title = "generated_image"
+
 [[outputs]]
 id = "BYR5rZtBuOiMBvyYqayqG"
 uri = "file://attached_assets/stock_images/lumen_ecommerce.jpg"
