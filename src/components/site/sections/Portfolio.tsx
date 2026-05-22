@@ -14,25 +14,25 @@ const PROJECTS: Project[] = [
     title: "Lumen — Ecommerce Replatform",
     category: "Ecommerce · Shopify",
     metric: "+38% conversion · 2.4x AOV",
-    image: "/portfolio/lumen.jpg",
+    image: "/portfolio/lumen.png",
   },
   {
     title: "Aurora — Spring Brand Campaign",
     category: "Campaign · Multi-channel",
     metric: "12M impressions · 4.8x ROAS",
-    image: "/portfolio/aurora.jpg",
+    image: "/portfolio/aurora.png",
   },
   {
     title: "Northwind — Brand Film",
     category: "Video Production",
     metric: "1.8M views · Vimeo Staff Pick",
-    image: "/portfolio/northwind.jpg",
+    image: "/portfolio/northwind.png",
   },
   {
     title: "Vertex — Ops Dashboard",
     category: "Software · SaaS",
     metric: "−42% time-to-insight",
-    image: "/portfolio/vertex.jpg",
+    image: "/portfolio/vertex.png",
   },
 ];
 

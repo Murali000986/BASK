@@ -1,5 +1,52 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "AMuP-e37lCTwQJtok_03t"
+uri = "file://public/portfolio/lumen.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "JEXMdvxAyCCyOC_XMpVZP"
+uri = "file://public/portfolio/aurora.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "d68Q6YpPmgF_72e2UXxDq"
+uri = "file://public/portfolio/northwind.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "XjUTNHyViwRNjCKlr6ECu"
+uri = "file://public/portfolio/vertex.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "2CndDPcKUSjcyZM4WpMr8"
+uri = "file://public/portfolio/helios.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "nzrfj7SM5V-ZLfFM0RJzJ"
+uri = "file://public/portfolio/mosaic.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "XyBXSKJh-bw7aFGwMetGs"
+uri = "file://public/portfolio/quanta.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "cU31KJgZgibeZZSc3lkVx"
+uri = "file://public/portfolio/parallel.png"
+type = "image"
+title = "generated_image"
 
 [[outputs]]
 id = "BYR5rZtBuOiMBvyYqayqG"

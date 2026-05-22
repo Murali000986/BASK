@@ -21,14 +21,14 @@ const CATEGORIES = ["All", "Web", "Ecommerce", "Campaign", "Video", "Software"] 
 type Item = { title: string; cat: typeof CATEGORIES[number]; metric: string; image: string };
 
 const ITEMS: Item[] = [
-  { title: "Lumen — Ecommerce Replatform", cat: "Ecommerce", metric: "+38% conversion", image: "/portfolio/lumen.jpg" },
-  { title: "Aurora — Spring Campaign", cat: "Campaign", metric: "12M impressions", image: "/portfolio/aurora.jpg" },
-  { title: "Northwind — Brand Film", cat: "Video", metric: "1.8M views", image: "/portfolio/northwind.jpg" },
-  { title: "Vertex — Ops Dashboard", cat: "Software", metric: "−42% time-to-insight", image: "/portfolio/vertex.jpg" },
-  { title: "Helios — Marketing Site", cat: "Web", metric: "98 Lighthouse", image: "/portfolio/helios.jpg" },
-  { title: "Mosaic — D2C Launch", cat: "Ecommerce", metric: "₹2.1Cr in Q1", image: "/portfolio/mosaic.jpg" },
-  { title: "Quanta — Product Reel", cat: "Video", metric: "Used in 14 markets", image: "/portfolio/quanta.jpg" },
-  { title: "Parallel — Internal Suite", cat: "Software", metric: "11 modules shipped", image: "/portfolio/parallel.jpg" },
+  { title: "Lumen — Ecommerce Replatform", cat: "Ecommerce", metric: "+38% conversion", image: "/portfolio/lumen.png" },
+  { title: "Aurora — Spring Campaign", cat: "Campaign", metric: "12M impressions", image: "/portfolio/aurora.png" },
+  { title: "Northwind — Brand Film", cat: "Video", metric: "1.8M views", image: "/portfolio/northwind.png" },
+  { title: "Vertex — Ops Dashboard", cat: "Software", metric: "−42% time-to-insight", image: "/portfolio/vertex.png" },
+  { title: "Helios — Marketing Site", cat: "Web", metric: "98 Lighthouse", image: "/portfolio/helios.png" },
+  { title: "Mosaic — D2C Launch", cat: "Ecommerce", metric: "₹2.1Cr in Q1", image: "/portfolio/mosaic.png" },
+  { title: "Quanta — Product Reel", cat: "Video", metric: "Used in 14 markets", image: "/portfolio/quanta.png" },
+  { title: "Parallel — Internal Suite", cat: "Software", metric: "11 modules shipped", image: "/portfolio/parallel.png" },
 ];
 
 function PortfolioPage() {
