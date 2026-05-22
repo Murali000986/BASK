@@ -3,7 +3,8 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import { Logo } from "@/components/site/Logo";
-import { ArrowRight, Check, IndianRupee } from "lucide-react";
+import { ArrowRight, Check, IndianRupee, Phone, Loader2 } from "lucide-react";
+import { sendEnquiry } from "@/lib/sendEnquiry";
 
 export const Route = createFileRoute("/onboarding")({
   component: OnboardingPage,
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/onboarding")({
 
 type StepBase = { id: string; question: string; hint: string };
 type SingleStep = StepBase & { type: "single"; options: { value: string; label: string; icon: string }[] };
-type TextStep = StepBase & { type: "text"; placeholder: string };
+type TextStep = StepBase & { type: "text"; placeholder: string; inputType?: string; icon?: "rupee" | "phone" };
 type Step = SingleStep | TextStep;
 
 const STEPS: Step[] = [
@@ -34,6 +35,7 @@ const STEPS: Step[] = [
     hint: "Just give us a rough number — there's no wrong answer.",
     type: "text",
     placeholder: "e.g. 80,000 or 2 lakhs",
+    icon: "rupee",
   },
   {
     id: "timeline",
@@ -71,6 +73,15 @@ const STEPS: Step[] = [
       { value: "other", label: "Somewhere else", icon: "✨" },
     ],
   },
+  {
+    id: "phone",
+    question: "What's your mobile number?",
+    hint: "We'll reach out to schedule a quick intro call.",
+    type: "text",
+    placeholder: "+91 98765 43210",
+    inputType: "tel",
+    icon: "phone",
+  },
 ];
 
 function OnboardingPage() {
@@ -79,6 +90,8 @@ function OnboardingPage() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [done, setDone] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const current = STEPS[step];
   const total = STEPS.length;
@@ -93,12 +106,33 @@ function OnboardingPage() {
     setAnswers((prev) => ({ ...prev, [current.id]: value }));
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (step < total - 1) {
       setStep((s) => s + 1);
     } else {
-      setOnboardingDone(true);
-      setDone(true);
+      setSending(true);
+      setError(null);
+      try {
+        await sendEnquiry({
+          data: {
+            name: user?.name ?? "Unknown",
+            email: user?.email ?? "Unknown",
+            phone: answers.phone ?? "",
+            service: answers.service ?? "",
+            budget: answers.budget ?? "",
+            timeline: answers.timeline ?? "",
+            stage: answers.stage ?? "",
+            source: answers.source ?? "",
+          },
+        });
+        setOnboardingDone(true);
+        setDone(true);
+      } catch (e) {
+        console.error(e);
+        setError("Couldn't send your details. Please try again.");
+      } finally {
+        setSending(false);
+      }
     }
   };
 
@@ -175,9 +209,14 @@ function OnboardingPage() {
               {current.type === "text" ? (
                 <div className="mt-6">
                   <div className="flex items-center gap-3 rounded-2xl border border-line bg-surface-muted/40 px-4 py-3.5 focus-within:border-brand focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(79,70,229,0.08)] transition-all">
-                    <IndianRupee className="h-5 w-5 shrink-0 text-ink-muted" />
+                    {(current as TextStep).icon === "rupee" && (
+                      <IndianRupee className="h-5 w-5 shrink-0 text-ink-muted" />
+                    )}
+                    {(current as TextStep).icon === "phone" && (
+                      <Phone className="h-5 w-5 shrink-0 text-ink-muted" />
+                    )}
                     <input
-                      type="text"
+                      type={(current as TextStep).inputType ?? "text"}
                       value={currentAnswer}
                       onChange={(e) => handleText(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && canProceed && handleNext()}
@@ -216,13 +255,26 @@ function OnboardingPage() {
                 </div>
               )}
 
+              {error && (
+                <p className="mt-4 rounded-xl bg-red-50 px-4 py-2.5 text-[13px] text-red-600">{error}</p>
+              )}
+
               <button
                 onClick={handleNext}
-                disabled={!canProceed}
+                disabled={!canProceed || sending}
                 className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 py-3.5 text-[15px] font-600 text-white transition-all hover:bg-ink/90 hover:shadow-lift disabled:cursor-not-allowed disabled:opacity-40"
               >
-                {step < total - 1 ? "Continue" : "Finish"}
-                <ArrowRight className="h-4 w-4" />
+                {sending ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Sending…
+                  </>
+                ) : (
+                  <>
+                    {step < total - 1 ? "Continue" : "Finish & Send"}
+                    <ArrowRight className="h-4 w-4" />
+                  </>
+                )}
               </button>
             </div>
           </motion.div>
