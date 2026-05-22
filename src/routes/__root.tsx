@@ -7,8 +7,12 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 import appCss from "../styles.css?url";
+
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID ?? "";
 
 function NotFoundComponent() {
   return (
@@ -127,8 +131,12 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Outlet />
-    </QueryClientProvider>
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <Outlet />
+        </QueryClientProvider>
+      </AuthProvider>
+    </GoogleOAuthProvider>
   );
 }
