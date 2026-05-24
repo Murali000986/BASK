@@ -107,6 +107,7 @@ function OnboardingPage() {
       setError(null);
       
       const payload = {
+        access_key: "3f46e85b-3694-456d-b536-7cd0dfc3d6ce",
         name: user?.name ?? "Unknown",
         email: user?.email ?? "Unknown",
         phone: answers.phone ?? "",
@@ -114,12 +115,11 @@ function OnboardingPage() {
         timeline: answers.timeline ?? "",
         stage: answers.stage ?? "",
         source: answers.source ?? "",
-        _subject: "New Onboarding Request - BASK",
-        _template: "table",
+        subject: "New Onboarding Request - BASK",
       };
 
       try {
-        const res = await fetch("https://formsubmit.co/ajax/murali701081@gmail.com", {
+        const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -134,7 +134,7 @@ function OnboardingPage() {
         window.location.href = "https://www.mrixtech.in/";
       } catch (e) {
         console.warn("AJAX failed", e);
-        setError("FormSubmit.co is currently down. Please try again later.");
+        setError("Failed to send. Please try again later.");
       } finally {
         setSending(false);
       }

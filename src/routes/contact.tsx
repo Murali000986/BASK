@@ -37,13 +37,13 @@ function ContactPage() {
 
   const onSubmit = async (data: FormValues) => {
     const payload = {
+      access_key: "3f46e85b-3694-456d-b536-7cd0dfc3d6ce",
       ...data,
-      _subject: "New Contact Form Submission - BASK",
-      _template: "table",
+      subject: "New Contact Form Submission - BASK",
     };
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/murali701081@gmail.com", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,7 @@ function ContactPage() {
       reset();
     } catch (error) {
       console.warn("Submission error:", error);
-      alert("FormSubmit.co is currently down. Please try again later.");
+      alert("Failed to send. Please try again later.");
     }
   };
 
