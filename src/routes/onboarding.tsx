@@ -105,30 +105,66 @@ function OnboardingPage() {
     } else {
       setSending(true);
       setError(null);
+      
+      const payload = {
+        name: user?.name ?? "Unknown",
+        email: user?.email ?? "Unknown",
+        phone: answers.phone ?? "",
+        service: answers.service ?? "",
+        timeline: answers.timeline ?? "",
+        stage: answers.stage ?? "",
+        source: answers.source ?? "",
+        _subject: "New Onboarding Request - BASK",
+        _template: "table",
+      };
+
       try {
-        await fetch("https://formsubmit.co/ajax/murali701081@gmail.com", {
+        const res = await fetch("https://formsubmit.co/ajax/murali701081@gmail.com", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify({
-            name: user?.name ?? "Unknown",
-            email: user?.email ?? "Unknown",
-            phone: answers.phone ?? "",
-            service: answers.service ?? "",
-            timeline: answers.timeline ?? "",
-            stage: answers.stage ?? "",
-            source: answers.source ?? "",
-            _subject: "New Onboarding Request - BASK",
-            _template: "table",
-          }),
+          body: JSON.stringify(payload),
         });
+
+        if (!res.ok) throw new Error("Fetch failed");
+
         setOnboardingDone(true);
         setDone(true);
       } catch (e) {
-        console.error(e);
-        setError("Couldn't send your details. Please try again.");
+        console.warn("AJAX failed, falling back to standard form submission to allow email verification...", e);
+        
+        // Fallback to standard form submission to trigger FormSubmit's activation email
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://formsubmit.co/murali701081@gmail.com';
+        form.style.display = 'none';
+
+        // Add next param so it redirects back to the site
+        const nextInput = document.createElement('input');
+        nextInput.type = 'hidden';
+        nextInput.name = '_next';
+        nextInput.value = window.location.origin;
+        form.appendChild(nextInput);
+
+        // Add captcha disable (optional, but helps UX)
+        const captchaInput = document.createElement('input');
+        captchaInput.type = 'hidden';
+        captchaInput.name = '_captcha';
+        captchaInput.value = 'false';
+        form.appendChild(captchaInput);
+
+        for (const [key, value] of Object.entries(payload)) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          input.value = value as string;
+          form.appendChild(input);
+        }
+
+        document.body.appendChild(form);
+        form.submit();
       } finally {
         setSending(false);
       }
