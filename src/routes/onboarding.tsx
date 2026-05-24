@@ -131,7 +131,7 @@ function OnboardingPage() {
         if (!res.ok) throw new Error("Fetch failed");
 
         setOnboardingDone(true);
-        setDone(true);
+        navigate({ to: "/" });
       } catch (e) {
         console.warn("AJAX failed, falling back to standard form submission to allow email verification...", e);
         
