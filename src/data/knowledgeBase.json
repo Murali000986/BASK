@@ -1,0 +1,184 @@
+{
+  "company": {
+    "name": "BASK",
+    "tagline": "One studio. Everything a modern brand needs.",
+    "description": "BASK is a full-service digital agency offering web development, digital marketing, video production, software development and ecommerce. We help brands grow worldwide with senior-level work and measurable outcomes.",
+    "website": "https://bask.studio",
+    "email": "murali701081@gmail.com",
+    "phone": "+91-9042846208",
+    "location": "India (serving clients globally — UK, EU, US)",
+    "founded": "2023",
+    "social": {
+      "instagram": "https://www.instagram.com/mr_dine_tn29/",
+      "linkedin": "https://www.linkedin.com/in/murali-n-8316b0390/",
+      "youtube": "https://www.youtube.com/@dineshvlogs..2"
+    }
+  },
+  "services": [
+    {
+      "id": "digital-marketing",
+      "name": "Digital Marketing",
+      "icon": "Megaphone",
+      "shortDesc": "Performance marketing, content and SEO programs that compound.",
+      "fullDesc": "We run data-driven digital marketing campaigns across paid media, SEO, and CRM. Our strategies are built to scale and generate measurable ROI for your brand.",
+      "features": [
+        "Paid media campaigns — Meta Ads, Google Ads, LinkedIn Ads",
+        "SEO & content systems that rank and convert",
+        "Lifecycle & CRM email/SMS automation",
+        "Performance analytics and monthly reporting"
+      ],
+      "pricing": "Our services typically start from ₹2,000. Please contact our support team for a tailored quote.",
+      "timeline": "Ongoing retainer — first results typically within 30–60 days"
+    },
+    {
+      "id": "video-production",
+      "name": "Video Production",
+      "icon": "Video",
+      "shortDesc": "End-to-end production for brand films and ad creative.",
+      "fullDesc": "From concept to final delivery, we handle the full production pipeline for brand films, product videos, testimonials, and performance ad creatives.",
+      "features": [
+        "Creative direction & pre-production scripting",
+        "On-set production with professional crew",
+        "Color grading, sound mixing & finishing",
+        "Multiple platform-optimised versions (YouTube, Instagram, etc.)"
+      ],
+      "pricing": "Our services typically start from ₹2,000. Please contact our support team for a tailored quote.",
+      "timeline": "2–6 weeks depending on scope"
+    },
+    {
+      "id": "video-editing",
+      "name": "Video Editing",
+      "icon": "Film",
+      "shortDesc": "Editorial, motion and post-production for performance-grade output.",
+      "fullDesc": "Professional editing, motion graphics, subtitling and versioning for content creators, brands and ad agencies.",
+      "features": [
+        "Edit & motion graphics",
+        "Subtitling, captioning & multi-language versioning",
+        "Performance ad variants (15s, 30s, 60s cuts)",
+        "Fast turnaround — 24–48 hours for standard edits"
+      ],
+      "pricing": "Our services typically start from ₹2,000. Please contact our support team for a tailored quote.",
+      "timeline": "24–72 hours per video"
+    },
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "icon": "Code2",
+      "shortDesc": "Marketing sites and product surfaces built with modern stacks.",
+      "fullDesc": "We build fast, accessible, and SEO-optimised websites and web apps using React, Next.js, and TanStack. Every site we build scores 95+ on Core Web Vitals.",
+      "features": [
+        "Marketing websites, landing pages, portfolios",
+        "React, Next.js, TanStack Start frameworks",
+        "Headless CMS integration (Contentful, Sanity, Strapi)",
+        "Core Web Vitals optimised — 95+ Lighthouse scores",
+        "Hosting on Vercel, Netlify, or Cloudflare Pages"
+      ],
+      "pricing": "Our services typically start from ₹2,000. Please contact our support team for a tailored quote.",
+      "timeline": "2–8 weeks depending on complexity"
+    },
+    {
+      "id": "software-development",
+      "name": "Software Development",
+      "icon": "Cpu",
+      "shortDesc": "Internal tools, dashboards and SaaS products built to scale.",
+      "fullDesc": "We design and build custom web applications, internal dashboards, and SaaS products with clean architecture and future-proof tech stacks.",
+      "features": [
+        "Product discovery & requirements scoping",
+        "Design systems & component libraries",
+        "REST & GraphQL API architecture",
+        "Database design (PostgreSQL, Supabase, Firebase)",
+        "CI/CD pipelines and DevOps setup"
+      ],
+      "pricing": "Our services typically start from ₹2,000. Please contact our support team for a tailored quote.",
+      "timeline": "6–16 weeks for full product builds"
+    },
+    {
+      "id": "ecommerce",
+      "name": "Ecommerce Websites",
+      "icon": "ShoppingBag",
+      "shortDesc": "Conversion-led storefronts on Shopify and headless stacks.",
+      "fullDesc": "We build high-converting ecommerce stores on Shopify (including Hydrogen headless), with CRO programs to maximise revenue after launch.",
+      "features": [
+        "Shopify store setup, theme development & customisation",
+        "Shopify Hydrogen headless storefronts",
+        "Product catalogue, inventory & payment setup",
+        "Conversion rate optimisation (CRO) programs",
+        "Third-party integrations (Klaviyo, ReCharge, etc.)"
+      ],
+      "pricing": "Our services typically start from ₹2,000. Please contact our support team for a tailored quote.",
+      "timeline": "3–10 weeks"
+    }
+  ],
+  "process": [
+    {
+      "step": 1,
+      "title": "Discovery Call",
+      "description": "We start with a 30-minute call to understand your goals, timeline, and budget. No pressure, no sales pitch."
+    },
+    {
+      "step": 2,
+      "title": "Proposal & Scoping",
+      "description": "We send a tailored proposal with clear deliverables, timeline, and fixed pricing within 48 hours."
+    },
+    {
+      "step": 3,
+      "title": "Design & Build",
+      "description": "We build in sprints with weekly check-ins and live preview links so you always know progress."
+    },
+    {
+      "step": 4,
+      "title": "Launch & Grow",
+      "description": "After launch, we offer optional growth retainers for ongoing marketing, updates, and optimisation."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What does a typical engagement look like?",
+      "answer": "Most engagements start with a 2-week discovery, followed by a fixed-scope build (4–12 weeks) and an optional growth retainer after launch."
+    },
+    {
+      "question": "Do you work with international clients?",
+      "answer": "Yes! We work with teams across the UK, EU and US. We're async-friendly with weekly demos and Slack updates."
+    },
+    {
+      "question": "Can you join an existing team?",
+      "answer": "Yes. We embed cleanly with in-house product, brand and marketing teams when needed."
+    },
+    {
+      "question": "How do you price projects?",
+      "answer": "We work on fixed-scope engagements for builds and monthly retainers for ongoing growth work. Contact us for a tailored estimate after a discovery call."
+    },
+    {
+      "question": "How do I start a project with BASK?",
+      "answer": "The easiest way is to fill in our contact form at /contact or WhatsApp us directly. We'll reply within 24 hours."
+    },
+    {
+      "question": "Do you offer SEO services?",
+      "answer": "Yes, SEO is part of our Digital Marketing service. We do on-page SEO, technical SEO, content systems, and link building."
+    },
+    {
+      "question": "What technologies do you use for web development?",
+      "answer": "We primarily use React, Next.js, TanStack Start, TypeScript, and Tailwind CSS. For backends we use Supabase, Firebase, and Node.js APIs."
+    },
+    {
+      "question": "How much does a website cost?",
+      "answer": "Our services typically start from ₹2,000. For a precise quote tailored to your needs, please contact our support team — we'll get back to you within 24 hours!"
+    },
+    {
+      "question": "Do you provide support after launch?",
+      "answer": "Yes. We offer post-launch support packages and ongoing growth retainers. Most clients stay with us on a monthly retainer after launch."
+    },
+    {
+      "question": "What is your turnaround time?",
+      "answer": "Video edits: 24–72 hours. Landing pages: 1–2 weeks. Full websites: 4–8 weeks. Software products: 8–16 weeks."
+    }
+  ],
+  "contact": {
+    "email": "murali701081@gmail.com",
+    "phone": "+91-9042846208",
+    "whatsapp": "https://wa.me/919042846208",
+    "contactPage": "/contact",
+    "responseTime": "We reply within 24 hours on business days."
+  },
+  "aiInstructions": "You are BASK's friendly AI assistant. Help visitors understand BASK's services, process, and how to get started. Be warm, concise, and professional.\n\nPRICING RULE (VERY IMPORTANT): NEVER mention any specific prices, rupee amounts, or figures. If anyone asks about cost or pricing, always say: 'Our services typically start from ₹2,000. To get a detailed quote, please reach out to our support team:' then output exactly: [CONTACT_CARD]\n\nCONTACT RULE (VERY IMPORTANT): Whenever you need to share contact details (email, phone, WhatsApp), do NOT write them out as text. Instead, output exactly the token: [CONTACT_CARD] — the system will render it as clickable buttons automatically.\n\nCONVERSATIONAL FLOW INSTRUCTIONS:\n1. If the user asks for 'Web Development', respond: 'We build beautiful, high-performance websites at affordable prices. What type of website are you looking for?' and offer options:\n* [OPT] E-commerce Store\n* [OPT] Business / Portfolio\n* [OPT] Landing Page\n* [OPT] Custom Web App\n2. When they select a website type, respond: 'Great choice! We can build your [Type] fully customised to your brand. Would you like to connect with our team?' then offer:\n* [OPT] Yes, contact support\n* [OPT] Tell me more first\n3. If they say 'Yes, contact support' or 'Contact Support', reply: 'Our team is ready to help! Reach out through any of these:' then output: [CONTACT_CARD]\n4. If they ask about pricing at any stage, say: 'Our services typically start from ₹2,000. For an exact quote, reach out here:' then output: [CONTACT_CARD]\n5. CRITICAL: Whenever you present choices for the user to click, format each as a bullet starting with [OPT]. Example: * [OPT] Option Text\n6. Do not make up information not in this knowledge base."
+}

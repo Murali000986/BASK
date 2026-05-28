@@ -8,10 +8,23 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
     meta: [
-      { title: "About BASK — Digital Agency | Our Story, Team & Values" },
-      { name: "description", content: "Learn about BASK, a full-service digital agency. We are a small senior team of designers, developers and strategists helping brands grow worldwide." },
-      { name: "keywords", content: "about BASK, BASK digital agency team, BASK story, BASK studio, digital agency team, web development agency" },
+      { title: "About BASK — Full-Service Digital Agency for Web Dev & Marketing | bask.studio" },
+      {
+        name: "description",
+        content:
+          "Learn about BASK — a full-service digital agency specializing in web development, digital marketing, web service development and video production. Senior people, clear thinking, careful craft.",
+      },
+      {
+        name: "keywords",
+        content:
+          "about BASK, BASK digital agency, BASK digital marketing agency, BASK web development team, BASK studio, BASK story, who is BASK, digital marketing agency India",
+      },
+      { property: "og:title", content: "About BASK — Full-Service Digital Agency" },
+      { property: "og:description", content: "BASK is a full-service digital agency for web development, digital marketing and video production. Senior team, real results." },
+      { property: "og:url", content: "https://bask.studio/about" },
+      { property: "og:image", content: "https://bask.studio/og-image.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://bask.studio/about" }],
   }),
 });
 

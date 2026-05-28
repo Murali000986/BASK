@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { Menu, X, ArrowUpRight, LogOut } from "lucide-react";
+import { Menu, X, ArrowUpRight, LogOut, Shield } from "lucide-react";
 import { Logo } from "./Logo";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -90,6 +90,16 @@ export function Navbar() {
                       <p className="text-[13px] font-600 text-ink">{user.name}</p>
                       <p className="text-[12px] text-ink-muted">{user.email}</p>
                     </div>
+                    {user.email === "murali701081@gmail.com" && (
+                      <Link
+                        to="/admin"
+                        onClick={() => setAvatarMenu(false)}
+                        className="flex w-full items-center gap-2.5 px-4 py-3 text-[13.5px] font-500 text-indigo-600 transition-colors hover:bg-indigo-50"
+                      >
+                        <Shield className="h-4 w-4" />
+                        Admin Panel
+                      </Link>
+                    )}
                     <button
                       onClick={handleLogout}
                       className="flex w-full items-center gap-2.5 px-4 py-3 text-[13.5px] font-500 text-ink-soft transition-colors hover:bg-surface-muted hover:text-ink"
@@ -170,12 +180,23 @@ export function Navbar() {
               Start Project <ArrowUpRight className="h-4 w-4" />
             </a>
             {user && (
-              <button
-                onClick={() => { setOpen(false); handleLogout(); }}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-line px-5 py-3.5 text-[14px] font-500 text-ink-soft"
-              >
-                <LogOut className="h-4 w-4" /> Sign out
-              </button>
+              <>
+                {user.email === "murali701081@gmail.com" && (
+                  <Link
+                    to="/admin"
+                    onClick={() => setOpen(false)}
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-indigo-200 bg-indigo-50 px-5 py-3.5 text-[14px] font-600 text-indigo-700"
+                  >
+                    <Shield className="h-4 w-4" /> Admin Panel
+                  </Link>
+                )}
+                <button
+                  onClick={() => { setOpen(false); handleLogout(); }}
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-line px-5 py-3.5 text-[14px] font-500 text-ink-soft"
+                >
+                  <LogOut className="h-4 w-4" /> Sign out
+                </button>
+              </>
             )}
           </div>
         </div>

@@ -4,6 +4,7 @@ export type AuthUser = {
   name: string;
   email: string;
   picture: string;
+  lastLogin?: string;
 };
 
 type AuthContextType = {
@@ -32,7 +33,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = (u: AuthUser) => {
     setUser(u);
-    try { localStorage.setItem("nb_user", JSON.stringify(u)); } catch {}
+    try { 
+      localStorage.setItem("nb_user", JSON.stringify(u));
+      
+      const rawUsers = localStorage.getItem("bask_users");
+      const users: AuthUser[] = rawUsers ? JSON.parse(rawUsers) : [];
+      const idx = users.findIndex(existing => existing.email === u.email);
+      
+      const updatedUser = { ...u, lastLogin: new Date().toISOString() };
+      if (idx === -1) {
+        users.unshift(updatedUser);
+      } else {
+        users[idx] = { ...users[idx], ...updatedUser };
+      }
+      localStorage.setItem("bask_users", JSON.stringify(users.slice(0, 500)));
+    } catch {}
   };
 
   const logout = () => {

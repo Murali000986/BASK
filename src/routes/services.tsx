@@ -17,9 +17,90 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
   head: () => ({
     meta: [
-      { title: "Services — BASK | Web Development, Digital Marketing, Video & Software" },
-      { name: "description", content: "BASK offers web development, digital marketing, SEO, video production, software development and ecommerce. Senior-level work, senior-level results." },
-      { name: "keywords", content: "BASK services, web development service, digital marketing service, video production service, software development service, ecommerce development, SEO service, brand design" },
+      { title: "BASK Services — Web Development, Digital Marketing & Web Service Dev | bask.studio" },
+      {
+        name: "description",
+        content:
+          "BASK offers professional web development, digital marketing, web service development, video production, software development and ecommerce solutions. Senior-level work. Real results.",
+      },
+      {
+        name: "keywords",
+        content:
+          "BASK digital marketing, BASK web service dev, BASK web service development, BASK web development, BASK services, BASK agency services, web development service, digital marketing agency, web service development company, software development, ecommerce development, SEO service, video production",
+      },
+      { property: "og:title", content: "BASK Services — Web Dev, Digital Marketing & Web Services" },
+      { property: "og:description", content: "BASK delivers web development, digital marketing, web service dev, video production and software development. Helping modern brands grow worldwide." },
+      { property: "og:url", content: "https://bask.studio/services" },
+      { property: "og:image", content: "https://bask.studio/og-image.jpg" },
+    ],
+    links: [{ rel: "canonical", href: "https://bask.studio/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What digital marketing services does BASK offer?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "BASK offers a full range of digital marketing services including SEO, social media marketing, paid advertising (Meta, Google, LinkedIn), content marketing, email marketing and brand strategy.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Does BASK do web service development?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. BASK provides end-to-end web service development including REST APIs, full-stack web applications, SaaS products, internal tools and custom software solutions built with modern stacks.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What web development services does BASK provide?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "BASK builds marketing websites, web apps and product surfaces using React, Next.js and TanStack. We focus on performance, Core Web Vitals and conversion-led design.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How do you price BASK projects?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "BASK works on fixed-scope engagements for builds and monthly retainers for ongoing digital marketing. Get in touch at bask.studio/contact for a tailored estimate.",
+              },
+            },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Digital Marketing and Web Service Development",
+          provider: {
+            "@type": "Organization",
+            name: "BASK",
+            url: "https://bask.studio",
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "BASK Services",
+            itemListElement: [
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Digital Marketing" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Web Service Development" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Web Development" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Video Production" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Software Development" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Ecommerce Development" } },
+            ],
+          },
+        }),
+      },
     ],
   }),
 });

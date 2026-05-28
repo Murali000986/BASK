@@ -9,10 +9,23 @@ export const Route = createFileRoute("/blog")({
   component: BlogPage,
   head: () => ({
     meta: [
-      { title: "Blog — BASK | Digital Marketing, Web Dev & Design Insights" },
-      { name: "description", content: "Read the latest insights, tips and case studies on web development, digital marketing, video production and software from the BASK team." },
-      { name: "keywords", content: "BASK blog, digital marketing tips, web development blog, design insights, SEO tips, video production tips, software development blog" },
+      { title: "BASK Blog — Digital Marketing, Web Dev & Web Service Insights | bask.studio" },
+      {
+        name: "description",
+        content:
+          "Explore BASK's expert blog on digital marketing, web development, web service development, SEO, video production and brand strategy. Learn from a senior digital agency team.",
+      },
+      {
+        name: "keywords",
+        content:
+          "BASK blog, BASK digital marketing tips, BASK web service dev guide, BASK web development insights, digital marketing blog, web development blog, SEO tips, video production blog",
+      },
+      { property: "og:title", content: "BASK Blog — Digital Marketing, Web Dev & Web Service Insights" },
+      { property: "og:description", content: "Expert insights on digital marketing, web development and web services from BASK — a full-service digital agency." },
+      { property: "og:url", content: "https://bask.studio/blog" },
+      { property: "og:image", content: "https://bask.studio/og-image.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://bask.studio/blog" }],
   }),
 });
 

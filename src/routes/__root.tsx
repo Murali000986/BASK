@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { AiChatWidget } from "@/components/site/AiChatWidget";
 
 import appCss from "../styles.css?url";
 
@@ -83,27 +84,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "keywords",
         content:
-          "BASK, BASK digital agency, BASK web development, BASK web dev, bask studio, digital marketing agency, web development company, web design, software development, video production, ecommerce website, SEO agency, social media marketing, brand design, UI UX design",
+          "BASK, BASK digital agency, BASK web development, BASK web dev, BASK web service dev, BASK web service development, BASK digital marketing, bask studio, digital marketing agency, web development company, web design, software development, video production, ecommerce website, SEO agency, social media marketing, brand design, UI UX design",
       },
       // Open Graph
       { property: "og:site_name", content: "BASK" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://bask.studio" },
-      { property: "og:title", content: "BASK — Digital Agency | Web Dev, Marketing & Video" },
+      { property: "og:title", content: "BASK — Digital Agency | Web Dev, Digital Marketing & Web Services" },
       {
         property: "og:description",
         content:
-          "BASK is a full-service digital agency offering web development, digital marketing, video production, software development and ecommerce. Helping brands grow worldwide.",
+          "BASK is a full-service digital agency offering web development, digital marketing, web service development, video production, software development and ecommerce. Helping brands grow worldwide.",
       },
+      { property: "og:image", content: "https://bask.studio/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "BASK Digital Agency — Web Development, Digital Marketing & Web Services" },
       // Twitter Card
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@baskstudio" },
-      { name: "twitter:title", content: "BASK — Digital Agency | Web Dev, Marketing & Video" },
+      { name: "twitter:title", content: "BASK — Digital Agency | Web Dev, Digital Marketing & Web Services" },
       {
         name: "twitter:description",
         content:
-          "BASK is a full-service digital agency offering web development, digital marketing, video production, software development and ecommerce. Helping brands grow worldwide.",
+          "BASK is a full-service digital agency offering web development, digital marketing, web service development, video production, software development and ecommerce. Helping brands grow worldwide.",
       },
+      { name: "twitter:image", content: "https://bask.studio/og-image.jpg" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -120,32 +126,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": ["Organization", "ProfessionalService"],
           name: "BASK",
+          alternateName: ["BASK Digital Agency", "BASK Studio", "BASK Digital Marketing", "BASK Web Service Dev"],
           url: "https://bask.studio",
-          logo: "https://bask.studio/logo.png",
+          logo: "https://bask.studio/bask-logo.jpg",
+          image: "https://bask.studio/og-image.jpg",
           description:
-            "BASK is a full-service digital agency offering web development, digital marketing, video production, software development and ecommerce.",
+            "BASK is a full-service digital agency offering web development, digital marketing, web service development, video production, software development and ecommerce. Helping modern brands grow worldwide.",
+          slogan: "One studio. Everything a modern brand needs.",
           contactPoint: {
             "@type": "ContactPoint",
             telephone: "+91-9042846208",
             email: "murali701081@gmail.com",
             contactType: "customer service",
+            availableLanguage: "English",
           },
           sameAs: [
             "https://www.instagram.com/mr_dine_tn29/",
             "https://www.linkedin.com/in/murali-n-8316b0390/",
             "https://www.youtube.com/@dineshvlogs..2",
           ],
-          service: [
-            "Web Development",
-            "Digital Marketing",
-            "Video Production",
-            "Software Development",
-            "Ecommerce Website Development",
-            "SEO",
-            "Brand Design",
-          ],
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "BASK Services",
+            itemListElement: [
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Digital Marketing", description: "Performance marketing, SEO, social media and content programs that compound." } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Web Service Development", description: "End-to-end web service development including REST APIs, full-stack web apps and SaaS products." } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Web Development", description: "Marketing sites and product surfaces built with React, Next.js and TanStack." } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Video Production", description: "End-to-end video production for brand films and ad creative." } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Software Development", description: "Internal tools, dashboards and SaaS products built to scale." } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "BASK Ecommerce Development", description: "Conversion-led storefronts on Shopify and headless stacks." } },
+            ],
+          },
         }),
       },
     ],
@@ -178,6 +191,7 @@ function RootComponent() {
       <AuthProvider>
         <QueryClientProvider client={queryClient}>
           <Outlet />
+          <AiChatWidget />
         </QueryClientProvider>
       </AuthProvider>
     </GoogleOAuthProvider>

@@ -9,9 +9,43 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
   head: () => ({
     meta: [
-      { title: "Contact BASK — Start a Project | Book a Free Call" },
-      { name: "description", content: "Get in touch with BASK to start your next web development, digital marketing, video or software project. Book a free call via WhatsApp or fill out the form." },
-      { name: "keywords", content: "contact BASK, start a project with BASK, hire digital agency, book free call, web development inquiry, digital marketing inquiry" },
+      { title: "Contact BASK — Hire a Digital Marketing & Web Dev Agency | bask.studio" },
+      {
+        name: "description",
+        content:
+          "Contact BASK to start your web development, digital marketing, web service development or video production project. Book a free call or send us a message — we reply within one business day.",
+      },
+      {
+        name: "keywords",
+        content:
+          "contact BASK, hire BASK, BASK digital marketing inquiry, BASK web service dev inquiry, BASK web development, start a project with BASK, book free call BASK",
+      },
+      { property: "og:title", content: "Contact BASK — Start Your Digital Marketing or Web Dev Project" },
+      { property: "og:description", content: "Get in touch with BASK. We build websites, run digital marketing and develop web services for modern brands worldwide." },
+      { property: "og:url", content: "https://bask.studio/contact" },
+      { property: "og:image", content: "https://bask.studio/og-image.jpg" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://bask.studio/contact" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact BASK Digital Agency",
+          url: "https://bask.studio/contact",
+          description: "Contact BASK for web development, digital marketing and web service development projects.",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+91-9042846208",
+            email: "murali701081@gmail.com",
+            contactType: "customer service",
+            availableLanguage: "English",
+          },
+        }),
+      },
     ],
   }),
 });

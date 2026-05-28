@@ -1,93 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
     <loc>https://bask.studio/</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://bask.studio/og-image.jpg</image:loc>
+      <image:title>BASK Digital Agency — Web Development, Digital Marketing &amp; Video Production</image:title>
+      <image:caption>BASK is a full-service digital agency helping brands grow with web dev, digital marketing and video.</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://bask.studio/about</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bask.studio/services</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://bask.studio/og-image.jpg</image:loc>
+      <image:title>BASK Services — Web Development &amp; Digital Marketing</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://bask.studio/stories</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bask.studio/stories/ai-agent-automation</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://bask.studio/stories/web-development</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://bask.studio/stories/ecommerce-growth</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://bask.studio/stories/video-production</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://bask.studio/stories/video-shoot</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://bask.studio/stories/software-development</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://bask.studio/blog</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bask.studio/contact</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://bask.studio/privacy</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

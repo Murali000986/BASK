@@ -130,6 +130,23 @@ function OnboardingPage() {
 
         if (!res.ok) throw new Error("Fetch failed");
 
+        // Save enquiry to localStorage for Admin Panel visibility
+        try {
+          const enquiryRecord = {
+            name: user?.name ?? "Unknown",
+            email: user?.email ?? "Unknown",
+            phone: answers.phone ?? "",
+            service: answers.service ?? "",
+            timeline: answers.timeline ?? "",
+            stage: answers.stage ?? "",
+            source: answers.source ?? "",
+            submittedAt: new Date().toISOString(),
+          };
+          const existing = JSON.parse(localStorage.getItem("bask_enquiries") ?? "[]");
+          existing.unshift(enquiryRecord);
+          localStorage.setItem("bask_enquiries", JSON.stringify(existing.slice(0, 500)));
+        } catch {}
+
         setOnboardingDone(true);
         window.location.href = "https://www.mrixtech.in/";
       } catch (e) {
